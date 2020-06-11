@@ -1,4 +1,4 @@
-# raspberrypi_os
+# Porting Minix to Raspberry Pi
 
 As an software engineer, I want to learn all the parts of an OS. Rather than implementing a new OS 101, I feel the best way to learn would be to use an existing OS and port to a hardware.
 
