@@ -4,6 +4,7 @@ Summary from the book "Operating Systems Design Implementation 3"
 
 ## MINIX3 System Components
 Component|Description                              |Loaded by
+---------|-----------------------------------------|---------------
 kernel   |Kernel + clock and system tasks          |(in boot image)
 pm       |Process manager                          |(in boot image)
 fs       |File system                              |(in boot image)
