@@ -13,9 +13,9 @@ memory   |RAM disk driver                          |(in boot image)|
 log      |Buffers log output                       |(in boot image)|
 tty      |Console and keyboard driver              |(in boot image)|
 driver   |Disk (at, bios, or floppy) driver        |(in boot image)|
-init     |Mother of all user processes             |(in boot image)|PID=1,PARENT=rs,1.executes the /etc/rc shell script.
+init     |Mother of all user processes             |(in boot image)|PID=1,PARENT=rs
 floppy   |Floppy driver (if booted from hard disk) |/etc/rc        |
-is       |Information server (for debug dumps)     |/etc/rc        |produced by pressing function keys (F1, F2, etc.)
+is       |Information server (for debug dumps)     |/etc/rc        |produced by function keys
 cmos     |Reads CMOS clock to set time             |/etc/rc        |
 random   |Random number generator                  |/etc/rc        |
 printer  |Printer driver                           |/etc/rc        |
