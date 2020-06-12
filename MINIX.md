@@ -29,13 +29,13 @@ SOLO: neither a child nor a parent of any other process
 * One of the actions of the reincarnation server is to adopt all system processes except the process manager as its own children.
 
 ## init - Mother of all user processes
-* init first executes the /etc/rc shell script. (Run Control Scripts)
+* ```init``` first executes the ```/etc/rc``` shell script. (Run Control Scripts)
 * This script starts additional drivers and servers that are not part of the boot image.
-* Any program started by the rc script will be a child of init.
-* One of the first programs run is a utility called service.
+* Any program started by the rc script will be a child of ```init```.
+* One of the first programs run is a utility called ```service```.
 * An important function of the rc script is to check for file system problems that might have resulted from a previous system crash. The test is simplewhen the system is shutdown correctly by executing the shutdown command an entry is written to the login history file, /usr/adm/wtmp. The command ```shutdown C``` checks whether the last entry in wtmp is a shutdown entry. If not, it is assumed an abnormal shutdown occurred, and the ```fsck``` utility is run to check all file systems. 
-* The final job of /etc/rc is to start daemons. This may be done by subsidiary scripts. If you look at the output of a ```ps axl``` command, which shows both PIDs and parent PIDs (PPIDs), you will see that daemons such as update and usyslogd will normally be the among the first persistent processes which are children of init.
-* Finally init reads the file /etc/ttytab, which lists all potential terminal devices. Those devices that can be used as login terminals (in the standard distribution, just the main console and up to three virtual consoles, but serial lines and network pseudo terminals can be added) have an entry in the getty field of /etc/ttytab, and init forks off a child process for each such terminal. Normally, each child executes /usr/bin/getty which prints a message, then waits for a name to be typed. If a particular terminal requires special treatment (e.g., a dial-up line) /etc/ttytab can specify a command (such as /usr/bin/stty) to be executed to initialize the line before running getty.
+* The final job of /etc/rc is to start daemons. This may be done by subsidiary scripts. If you look at the output of a ```ps axl``` command, which shows both PIDs and parent PIDs (PPIDs), you will see that daemons such as update and usyslogd will normally be the among the first persistent processes which are children of ```init```.
+* Finally ```init``` reads the file /etc/ttytab, which lists all potential terminal devices. Those devices that can be used as login terminals (in the standard distribution, just the main console and up to three virtual consoles, but serial lines and network pseudo terminals can be added) have an entry in the getty field of /etc/ttytab, and init forks off a child process for each such terminal. Normally, each child executes /usr/bin/getty which prints a message, then waits for a name to be typed. If a particular terminal requires special treatment (e.g., a dial-up line) /etc/ttytab can specify a command (such as /usr/bin/stty) to be executed to initialize the line before running getty.
 
 ## fs - File System
 ```/sbin``` - The servers and drivers needed initially
