@@ -12,14 +12,12 @@ As an software engineer, I want to learn all the parts of an OS. Rather than imp
    1. Full: All tools and utils with a full blown GUI
 
 ## Tasks (ToDo)
-
-Sl. | Details | Status
-----|---------|---------
-1. | SD Card Support | Incomplete
-2. | HDMI/Mini HDMI Support | Incomplete
-3. | USB/Micro USB Support | Incomplete
-4. | 64 Bit Kernel Support | Incomplete
-5. | SMP Support | Incomplete
+- [ ] SD Card Support
+- [ ] HDMI/Mini HDMI Support
+- [ ] USB/Micro USB Support
+- [ ] Implement device tree
+- [ ] 64 Bit Kernel Support
+- [ ] SMP Support
 
 ## What work needs to be done?:
 __copied from "The future of Minix." posted in minix3 google group by "stux atMinix"__
