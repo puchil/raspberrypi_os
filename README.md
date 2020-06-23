@@ -15,7 +15,7 @@ As an software engineer, I want to learn all the parts of an OS. Rather than imp
 
 Sl. | Details | Status
 ----|---------|---------
-1. | SD Card Support | Incomplete
+-[x] | SD Card Support | Incomplete
 1. | HDMI/Mini HDMI Support | Incomplete
 1. | USB/Micro USB Support | Incomplete
 1. | 64 Bit Kernel Support | Incomplete
