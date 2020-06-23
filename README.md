@@ -14,6 +14,7 @@ As an software engineer, I want to learn all the parts of an OS. Rather than imp
 ## Tasks (ToDo)
 
 Sl. | Details | Status
+----|---------|---------
 1.  | SD Card Support | Incomplete
 1.  | HDMI/Mini HDMI Support | Incomplete
 1.  | USB/Micro USB Support | Incomplete
