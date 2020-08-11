@@ -12,12 +12,15 @@ As an software engineer, I want to learn all the parts of an OS. Rather than imp
    1. Full: All tools and utils with a full blown GUI
 
 ## Tasks (ToDo)
+- [ ] Drive Tree Support
+- [ ] Mailbox Support
 - [ ] SD Card Support
 - [ ] HDMI/Mini HDMI Support
 - [ ] USB/Micro USB Support
 - [ ] Implement device tree
 - [ ] 64 Bit Kernel Support
 - [ ] SMP Support
+- [ ] OpenMax IL https://www.khronos.org/openmaxil
 
 ## What work needs to be done?:
 __copied from "The future of Minix." posted in minix3 google group by "stux atMinix"__
@@ -39,3 +42,8 @@ Here is a list of lower-priority items that nevertheless need to be implemented 
 * Security Hardening Minix: code audits, security audits, and eventual formal verification like SEL4 should also be a long term goal.  Due to technical debt, Minix may vulnerable to exploits that have already been secured in other OSes. Some of the speculative execution vulnerabilities come to mind (though the Minix microkernel architecture itself may naturally prevent some of these).  Minix's service model means people have to jump more hoops to do something nasty to the OS.  But if minix were to gain popularity, it would get the same scrutiny as mainstream OSes and have those extra hoops discovered.
 
 This list is long but not exhaustive. None of the items are simple either.  However, tackling the above items should bring Minix nearly on par with NetBSD's software and hardware support. For those who are not aware: Minix adopted NetBSD's userland in order to allow developers to focus on the Microkernel architecture itself.  Among other things, RUMP was believed to be the right approach to abstracting hardware support from the kernel architecture and one of the factors in deciding which BSD's userspace to adopt.  However, that doesn't mean tools from the other major BSDs can't be used. But being able to virtually replace the NetBSD kernel with Minix's architecture was the eventual goal behind this decision.
+
+## Setting up the build Environment
+1. Built Clang and ld from llvm-project website.
+   1. Had to comment the llvm\cmake\modules\CheckAtomic.cmake Line#58 as per the following issues https://github.com/PurpleI2P/i2pd/issues/1198 & https://github.com/Microsoft/llvm/commit/cc73f106483f3bd8af7bf9a2bec76ed5206d38f9
+   1. Had another error So applied this issue logic https://github.com/ARM-software/ComputeLibrary/issues/169
