@@ -1,5 +1,6 @@
-#include "mini_uart.h"
+#include "uart.h"
 #include "mailbox.h"
+#include "printf.h"
 
 void print_serial_num()
 {
@@ -14,20 +15,19 @@ void print_serial_num()
     mbox[7] = MBOX_TAG_LAST;
 
     if(call_mbox(MBOX_CH_PROP)){
-	    uart_send_string("Serial Number: ");
-	    uart_send_hex(mbox[6]);
-	    uart_send_hex(mbox[5]);
+	    printf("Serial Number: %x-%x", mbox[6], mbox[5]);
     } else {
-    	uart_send_string("Error: Unable to query Serial Number!");
+    	printf("Error: Unable to query Serial Number!");
     }
 }
 
 void kernel_main( void )
 {
 	uart_init();
-	uart_send_string("Hello, Minix 4!\r\n");
+    init_printf(0, putc);
+	printf("Hello, Minix 4!\r\n");
 	print_serial_num();
-    uart_send_string("\r\niEcho: ");
+    printf("\r\niEcho: ");
 	while(1)
 		uart_send(uart_recv());
 }

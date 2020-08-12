@@ -2,7 +2,7 @@
 #include "peripherals/mini_uart.h"
 #include "peripherals/gpio.h"
 
-void uart_send( char c )
+void miniuart_send( char c )
 {
 	while(1){
 		if(get32(AUX_MU_LSR_REG)&0x20)
@@ -11,7 +11,7 @@ void uart_send( char c )
 	put32(AUX_MU_IO_REG, c);
 }
 
-void uart_send_string(char* str)
+void miniuart_send_string(char* str)
 {
 	for(int i=0; str[i] != '\0'; i++)
 		uart_send((char)str[i]);
@@ -20,7 +20,7 @@ void uart_send_string(char* str)
 /**
  * Display a binary value in hexadecimal
  */
-void uart_send_hex(unsigned int d) {
+void miniuart_send_hex(unsigned int d) {
     unsigned int n;
     int c;
     for(c=28;c>=0;c-=4) {
@@ -32,7 +32,7 @@ void uart_send_hex(unsigned int d) {
     }
 }
 
-char uart_recv( void )
+char miniuart_recv( void )
 {
 	while(1){
 		if(get32(AUX_MU_LSR_REG)&0x01)
@@ -42,7 +42,7 @@ char uart_recv( void )
 }
 
 
-void uart_init( void )
+void miniuart_init( void )
 {
 	unsigned int selector;
 	selector = get32(GPFSEL1);

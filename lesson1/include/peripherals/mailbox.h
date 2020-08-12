@@ -1,3 +1,6 @@
+#ifndef	_P_MAILBOX_H
+#define	_P_MAILBOX_H
+
 #include "base.h"
 
 #define MAIL_BASE 		(PBASE+0x0000B880)	// Base address for the mailbox registers
@@ -12,3 +15,5 @@
 #define MBOX_RESPONSE   0x80000000
 #define MBOX_FULL       0x80000000
 #define MBOX_EMPTY      0x40000000
+
+#endif  /*_P_MAILBOX_H */
