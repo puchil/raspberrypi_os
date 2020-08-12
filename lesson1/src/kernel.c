@@ -13,7 +13,7 @@ void print_serial_num()
     mbox[6] = 0;
     mbox[7] = MBOX_TAG_LAST;
 
-    if(mbox_call(MBOX_CH_PROP)){
+    if(call_mbox(MBOX_CH_PROP)){
 	    uart_send_string("Serial Number: ");
 	    uart_send_hex(mbox[6]);
 	    uart_send_hex(mbox[5]);
@@ -25,8 +25,9 @@ void print_serial_num()
 void kernel_main( void )
 {
 	uart_init();
-	uart_send_string("Hello, Minix 4!\n");
+	uart_send_string("Hello, Minix 4!\r\n");
 	print_serial_num();
+    uart_send_string("\r\niEcho: ");
 	while(1)
 		uart_send(uart_recv());
 }

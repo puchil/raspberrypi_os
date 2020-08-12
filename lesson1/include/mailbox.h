@@ -17,4 +17,4 @@
 
 /* a properly aligned buffer */
 extern volatile unsigned int mbox[36];
-int mbox_call(unsigned char channel);
+int call_mbox(unsigned char channel);
