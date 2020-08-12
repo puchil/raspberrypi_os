@@ -25,7 +25,8 @@ void kernel_main( void )
 {
 	uart_init();
     init_printf(0, putc);
-	printf("Hello, Minix 4!\r\n");
+    int el = get_el();
+	printf("Hello, Minix 4 running at EL%d!\r\n", el);
 	print_serial_num();
     printf("\r\niEcho: ");
 	while(1)
