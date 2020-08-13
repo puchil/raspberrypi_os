@@ -1,6 +1,7 @@
-#include "uart.h"
+#include "mini_uart.h"
 #include "mailbox.h"
 #include "printf.h"
+#include "utils.h"
 
 void print_serial_num()
 {
@@ -23,12 +24,15 @@ void print_serial_num()
 
 void kernel_main( void )
 {
-	uart_init();
-    init_printf(0, putc);
+	miniuart_init();
+    init_printf(0, miniuart_putc);
+
+    miniuart_send_string("Hello, Minix 4 Kernel!\r\n");
     int el = get_el();
-	printf("Hello, Minix 4 running at EL%d!\r\n", el);
+	printf("Running at Exception Level %d.\r\n", el);
 	print_serial_num();
+
     printf("\r\niEcho: ");
 	while(1)
-		uart_send(uart_recv());
+		miniuart_send(miniuart_recv());
 }

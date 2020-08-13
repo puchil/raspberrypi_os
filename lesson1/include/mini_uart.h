@@ -6,5 +6,6 @@ char miniuart_recv ( void );
 void miniuart_send ( char c );
 void miniuart_send_string(char* str);
 void miniuart_send_hex(unsigned int d);
+void miniuart_putc ( void* p, char c);
 
 #endif  /*_MINI_UART_H */

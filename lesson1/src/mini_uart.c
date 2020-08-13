@@ -11,10 +11,16 @@ void miniuart_send( char c )
 	put32(AUX_MU_IO_REG, c);
 }
 
+// This function is required by printf function
+void miniuart_putc ( void* p, char c)
+{
+	miniuart_send(c);
+}
+
 void miniuart_send_string(char* str)
 {
 	for(int i=0; str[i] != '\0'; i++)
-		uart_send((char)str[i]);
+		miniuart_send((char)str[i]);
 }
 
 /**
@@ -28,7 +34,7 @@ void miniuart_send_hex(unsigned int d) {
         n=(d>>c)&0xF;
         // 0-9 => '0'-'9', 10-15 => 'A'-'F'
         n+=n>9?0x37:0x30;
-        uart_send(n);
+        miniuart_send(n);
     }
 }
 
