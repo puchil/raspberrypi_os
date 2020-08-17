@@ -1,5 +1,6 @@
 #include "utils.h"
 #include "printf.h"
+#include "timer.h"
 #include "peripherals/irq.h"
 
 const char *entry_error_messages[] = {
