@@ -2,6 +2,8 @@
 #include "mailbox.h"
 #include "printf.h"
 #include "utils.h"
+#include "timer.h"
+#include "irq.h"
 
 void print_serial_num()
 {
@@ -31,6 +33,11 @@ void kernel_main( void )
     int el = get_el();
 	printf("Running at Exception Level %d.\r\n", el);
 	print_serial_num();
+
+    irq_vector_init();
+    timer_init();
+    enable_interrupt_controller();
+    enable_irq();
 
     printf("\r\niEcho: ");
 	while(1)
