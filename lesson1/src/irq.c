@@ -25,6 +25,11 @@ const char *entry_error_messages[] = {
 	"ERROR_INVALID_EL0_32"	
 };
 
+void enable_interrupt_controller(void)
+{
+	put32(ENABLE_IRQS_1, SYSTEM_TIMER_IRQ_1);
+}
+
 void show_invalid_entry_message(int type, unsigned long esr, unsigned long address)
 {
 	printf("%s, ESR: %x, address: %x\r\n", entry_error_messages[type], esr, address);
